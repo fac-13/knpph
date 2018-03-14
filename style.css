@@ -1,0 +1,4 @@
+.main-holder-class{
+    display: flex;
+    flex-wrap: wrap;
+}

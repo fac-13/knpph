@@ -22,9 +22,9 @@ addListener('submit-button', 'click', function(event){
 
 function displayResults(moviesArray) {
     console.log(moviesArray);
-   // while (mainHolder.firstChild) {
-   //     mainHolder.removeChild(mainHolder.firstChild);
-   // }
+    while (mainHolder.firstChild) {
+        mainHolder.removeChild(mainHolder.firstChild);
+    }
     moviesArray.forEach(function(movie) {
         let movieHolder = document.createElement('div');
         let posterHolder = document.createElement('img');
