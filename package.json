@@ -1,0 +1,25 @@
+{
+  "name": "phac-kpnet",
+  "version": "1.0.0",
+  "description": "API week project",
+  "main": "dom.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tape ./tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-13/phac-kpnet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-13/phac-kpnet/issues"
+  },
+  "homepage": "https://github.com/fac-13/phac-kpnet#readme",
+  "devDependencies": {
+    "tape": "^4.9.0"
+  }
+}
