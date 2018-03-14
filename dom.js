@@ -7,7 +7,7 @@
 }
 
 function fetchAllMoviesData(keyword, page){
-    let url = "http://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
+    let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
         console.log(response);
     });
