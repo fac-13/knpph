@@ -11,4 +11,5 @@ var logicFunctions = {
     xhr.open("GET", url);
     xhr.send();
     }
+
 }
