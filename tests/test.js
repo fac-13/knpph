@@ -39,9 +39,8 @@ test('Testing tape is working', function(t) {
 });
 
 test('Testing that only 6 keys are left in cleaned up json', function(t) {
-    let expected = 6;
+    let expected = 7;
     let actual = Object.keys(logicFunctions.cleanJSON(testingJSON)).length;
-    console.log(logicFunctions.cleanJSON(testingJSON));
     t.equal(actual, expected, 'Returned object has 6 key-value pairs');
     t.end();
   });
@@ -49,7 +48,27 @@ test('Testing that only 6 keys are left in cleaned up json', function(t) {
   test('Testing that actors property is an array', function(t) {
     let expected = true;
     let actual = Array.isArray(logicFunctions.cleanJSON(testingJSON).actors);
-    console.log(logicFunctions.cleanJSON(testingJSON));
     t.equal(actual, expected, 'Actors property is array');
+    t.end();
+  });
+
+  test('Testing number of pages if there were no results', function(t) {
+    let expected = 0;
+    let actual = logicFunctions.pageNumerator(0);
+    t.equal(actual, expected, 'No pages if no results');
+    t.end();
+  });
+
+  test('Testing number of pages if there were 200 results', function(t) {
+    let expected = 100;
+    let actual = logicFunctions.pageNumerator(200);
+    t.equal(actual, expected, 'No pages if no results');
+    t.end();
+  });
+
+  test('Testing number of pages if there were 99 results', function(t) {
+    let expected = 99;
+    let actual = logicFunctions.pageNumerator(99);
+    t.equal(actual, expected, 'No pages if no results');
     t.end();
   });

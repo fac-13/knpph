@@ -1,159 +1,175 @@
 html {
-    margin: 0;
-    background: hsl(0, 0%, 30%);
+  margin: 0;
+  background: hsl(0, 0%, 30%);
 }
 
 body {
-    margin: 0 auto;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#header {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(50%);
+  /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateX(-50%) translateY(50%);
+  /* IE 9 */
+  transform: translateX(-50%) translateY(50%);
+  /* IE 10, Fx 16+, Op 12.1+ */
 }
 
 body h1 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(50%);
-    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: translateX(-50%) translateY(50%);
-    /* IE 9 */
-    transform: translateX(-50%) translateY(50%);
-    /* IE 10, Fx 16+, Op 12.1+ */
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: linear-gradient(#1e272e, #485460);
+  height: 100vh;
 }
 
 .main-holder-class {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  padding: 1rem;
 }
 
-.main-holder-class>div {
-    display: block;
-    padding: 1rem;
+.main-holder-class {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  margin: 1rem;
 }
 
-.main-holder-class>div>img {
-    height: 25rem;
-    width: 100%;
-    object-fit: cover;
+.main-holder-class > div {
+  display: block;
+  padding: 1rem;
+}
+
+.main-holder-class > div > img {
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* ******************Test***************** */
 
+h1 {
+  margin: 0;
+}
+
 .main-holder-class2 {
-    display: block;
-    margin: 1rem auto;
-    background-color: beige;
-    width: 90%;
-    height: 90vh;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 90vh;
+  padding-top: 1rem;
+  color: white;
 }
 
 .content-holder {
-    margin: 0;
-    padding: 1%;
-    background-color: grey;
-    height: 98%;
-    width: 98%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  margin: 0;
+  padding: 1%;
+  height: 98%;
+  width: 98%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .poster-holder {
-    background-color: firebrick;
-    height: 90%;
-    width: 30%;
-    margin-right: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 90%;
+  width: 30%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .poster-img {
-    max-height: 90%;
-    max-width: 90%;
+  max-height: 90%;
+  max-width: 90%;
 }
 
 .summary-holder {
-    background-color: deepskyblue;
-    height: 90%;
-    width: 65%;
-    padding: 0 3%;
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
+  height: 90%;
+  width: 65%;
+  padding: 0 3%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .actor-list {
-    padding: 0;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
 }
 
 .actor-list li {
-    margin-right: 1%;
-    width: 24%;
+  margin-right: 3%;
+  margin-bottom: 3%;
 }
 
 span {
-    font-size: 1rem;
-    font-weight: 400;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /* ************End ***************/
 
 form {
-    margin: 0.2rem;
-    display: flex;
-    align-content: center;
+  margin: 0.2rem;
+  display: flex;
+  align-content: center;
 }
 
-input[type=text] {
-    color: white;
-    letter-spacing: 1px;
-    margin: 0.1rem auto;
-    padding: .3rem 1rem;
-    font-size: 1.2rem;
-    border: 2px solid hsl(0, 0%, 30%);
-    border-radius: 1rem;
-    width: 80%;
-    background: hsl(0, 0%, 40%);
+input[type="text"] {
+  color: white;
+  letter-spacing: 1px;
+  margin: 0.1rem auto;
+  padding: 0.3rem 1rem;
+  font-size: 1.2rem;
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 1rem;
+  width: 80%;
+  background: hsl(0, 0%, 40%);
 }
 
-input[type=submit] {
-    color: white;
-    letter-spacing: 1px;
-    margin: 0.2rem auto;
-    padding: .3rem 1rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    background: orangered;
-    border: solid 2px red;
-    border-radius: 1rem;
-    cursor: pointer;
-    outline: none;
-    text-align: center;
-    text-shadow: 2px 2px 5px darkred;
+input[type="submit"] {
+  color: white;
+  letter-spacing: 1px;
+  margin: 0.2rem auto;
+  padding: 0.3rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: orangered;
+  border: solid 2px red;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  text-shadow: 2px 2px 5px darkred;
 }
 
-input[type=submit]:hover {
-    background-color: red;
-    border: solid 2px orange;
-    box-shadow: inset 0 0 2px #fff;
-    outline: white;
+input[type="submit"]:hover {
+  background-color: red;
+  border: solid 2px orange;
+  box-shadow: inset 0 0 2px #fff;
+  outline: white;
 }
 
-input[type=submit]:active {
-    position: relative;
-    top: 1px;
+input[type="submit"]:active {
+  position: relative;
+  top: 1px;
 }
 
 footer {
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-    text-align: center;
-    height: 3rem;
-    background: hsl(0, 0%, 25%);
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  text-align: center;
+  height: 3rem;
+  background: hsl(0, 0%, 25%);
 }

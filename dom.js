@@ -16,26 +16,41 @@ function fetchOneMovieData(id){
     logicFunctions.makeCall(url, function(response){
         console.log(response);
         displayDetailedResults(response);
+        getReleaseDate(response.Released);
     });
 }
 
 function fetchAllMoviesData(keyword, page){
     let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
+
         if(!response.Search){
             header.innerText = 'No result for your search';
         } else {
             header.style.display = "none";
             displayResults(response.Search);
+            getPages(response.totalResults);
         }
     });
 }
+
 addListener('submit-button', 'click', function(event){
+    if (mainHolder.classList.contains("main-holder-class2")) {
+        mainHolder.classList.remove("main-holder-class2");
+        mainHolder.classList.add("main-holder-class");
+    }
     event.preventDefault();
     let keyword = searchBoxHolder.value;
     fetchAllMoviesData(keyword, 1);
 });
 
+ function getReleaseDate(date){
+     console.log(date);
+ }
+
+ function getPages(results){
+    let numberOfPages = logicFunctions.pageNumerator(results);
+ }
 // addListener('historyButton', 'click', function(){
 //     var url = "https://history.muffinlabs.com/date"
 //     logicFunctions.makeCall(url, function(response){
