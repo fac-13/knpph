@@ -15,6 +15,7 @@ function fetchOneMovieData(id){
     logicFunctions.makeCall(url, function(response){
         console.log(response);
         displayDetailedResults(response);
+        getReleaseDate(response.Released);
     });
 }
 
@@ -22,6 +23,7 @@ function fetchAllMoviesData(keyword, page){
     let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
         displayResults(response.Search);
+        getPages(response.totalResults);
     });
 }
 addListener('submit-button', 'click', function(event){
@@ -33,7 +35,12 @@ addListener('submit-button', 'click', function(event){
     let keyword = searchBoxHolder.value;
     fetchAllMoviesData(keyword, 1);
 });
-
+ function getReleaseDate(date){
+     console.log(date);
+ }
+ function getPages(results){
+     console.log(results);
+ }
 // addListener('historyButton', 'click', function(){
 //     var url = "https://history.muffinlabs.com/date"
 //     logicFunctions.makeCall(url, function(response){
