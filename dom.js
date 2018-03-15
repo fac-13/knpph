@@ -2,6 +2,7 @@
     let mykey = config.KEY_OMDB;
     let mainHolder = document.getElementById('main-holder');
     let searchBoxHolder = document.getElementById('search-box');
+    let buttonsHolder = document.getElementById("buttons-holder");
 
  function addListener(selector, eventName, callback) {
      document.getElementById(selector).addEventListener(eventName, callback);
@@ -23,7 +24,7 @@ function fetchAllMoviesData(keyword, page){
     let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
         displayResults(response.Search);
-        getPages(response.totalResults);
+        getPages(response.totalResults, keyword);
     });
 }
 
@@ -41,9 +42,26 @@ addListener('submit-button', 'click', function(event){
      console.log(date);
  }
 
- function getPages(results){
+ function getPages(results, keyword){
     let numberOfPages = logicFunctions.pageNumerator(results);
- }
+    while (buttonsHolder.firstChild) {
+        buttonsHolder.removeChild(buttonsHolder.firstChild);
+    }
+    if(numberOfPages>1){}
+        for (let i=1; i<=numberOfPages; i++){
+            let buttonHolder = document.createElement("button");
+            buttonHolder.setAttribute("class", "page-link");
+            buttonHolder.innerHTML=i;
+            buttonHolder.addEventListener("click", function(e){
+                e.preventDefault();
+                let pageNum = e.target.innerHTML;
+                fetchAllMoviesData(keyword, numberOfPages);
+        });
+            // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
+            buttonsHolder.appendChild(buttonHolder);
+    }
+}
+
 // addListener('historyButton', 'click', function(){
 //     var url = "https://history.muffinlabs.com/date"
 //     logicFunctions.makeCall(url, function(response){
