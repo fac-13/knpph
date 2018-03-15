@@ -16,9 +16,13 @@ var logicFunctions = {
         let initialData = JSON.parse(JSON.stringify(dirtyJSON));
         let finalJSON = {
             "title": initialData.Title,
-            "plot": initialData.PLot
+            "plot": initialData.Plot,
+            "actors": initialData.Actors.split(','),
+            "director": initialData.Director,
+            "date": initialData.Released,
+            "language": initialData.Language
         }
-
+        return finalJSON;
     }
 
 }
