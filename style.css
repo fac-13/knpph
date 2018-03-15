@@ -21,7 +21,7 @@ body {
   /* IE 10, Fx 16+, Op 12.1+ */
 }
 
-body h2 {
+body {
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -35,11 +35,6 @@ body h2 {
   padding: 1rem;
 }
 
-.main-holder-class {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  margin: 1rem;
-}
 
 .main-holder-class > div {
   display: block;

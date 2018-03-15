@@ -19,7 +19,7 @@ var designFunctions = {
                 </ul>
                 </div>
                 <h3>On release day in history:</h3>
-                <p>*Something happened*</p>
+                <p id="event-text"> </p>
             </div>
             `;
     return markup;
