@@ -21,7 +21,8 @@ var logicFunctions = {
             "actors": initialData.Actors.split(','),
             "director": initialData.Director,
             "date": initialData.Released,
-            "language": initialData.Language
+            "language": initialData.Language,
+            "poster": initialData.Poster
         }
         return finalJSON;
     }
