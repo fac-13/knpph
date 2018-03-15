@@ -51,6 +51,7 @@ function displayResults(moviesArray) {
 }
 
 function displayDetailedResults(response){
+    mainHolder.classList.remove("main-holder-class");
     while (mainHolder.firstChild) {
         mainHolder.removeChild(mainHolder.firstChild);
     }
@@ -59,6 +60,7 @@ function displayDetailedResults(response){
     let contentHolder = document.createElement('div');
     contentHolder.innerHTML = designFunctions.pageCreator(cleanJSON);
     contentHolder.setAttribute("class", "content-holder");
+    mainHolder.classList.add("main-holder-class2");
     
     // let imageHolder = document.createElement('div');
     // let imageContent = document.createElement('img');

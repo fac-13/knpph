@@ -27,6 +27,7 @@ body {
 
 /* ******************Test***************** */
 .main-holder-class2 {
+    display: block;
     margin: 1rem auto;
     background-color: beige;
     width: 90%;
