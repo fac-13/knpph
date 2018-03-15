@@ -1,4 +1,4 @@
-# knpph
+# Movie Poster Search API
 API week project
 
 ## Features
