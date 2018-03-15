@@ -26,6 +26,7 @@ function fetchAllMoviesData(keyword, page){
         getPages(response.totalResults);
     });
 }
+
 addListener('submit-button', 'click', function(event){
     if (mainHolder.classList.contains("main-holder-class2")) {
         mainHolder.classList.remove("main-holder-class2");
@@ -35,11 +36,13 @@ addListener('submit-button', 'click', function(event){
     let keyword = searchBoxHolder.value;
     fetchAllMoviesData(keyword, 1);
 });
+
  function getReleaseDate(date){
      console.log(date);
  }
+
  function getPages(results){
-     console.log(results);
+    let numberOfPages = logicFunctions.pageNumerator(results);
  }
 // addListener('historyButton', 'click', function(){
 //     var url = "https://history.muffinlabs.com/date"
