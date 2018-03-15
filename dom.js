@@ -2,6 +2,7 @@
     let mykey = config.KEY_OMDB;
     let mainHolder = document.getElementById('main-holder');
     let searchBoxHolder = document.getElementById('search-box');
+    const header = document.getElementById('header');
 
  function addListener(selector, eventName, callback) {
      document.getElementById(selector).addEventListener(eventName, callback);
@@ -22,8 +23,14 @@ function fetchOneMovieData(id){
 function fetchAllMoviesData(keyword, page){
     let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
-        displayResults(response.Search);
-        getPages(response.totalResults);
+
+        if(!response.Search){
+            header.innerText = 'No result for your search';
+        } else {
+            header.style.display = "none";
+            displayResults(response.Search);
+            getPages(response.totalResults);
+        }
     });
 }
 
