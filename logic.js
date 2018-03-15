@@ -10,6 +10,15 @@ var logicFunctions = {
         });
     xhr.open("GET", url);
     xhr.send();
+    },
+
+    cleanJSON: function (dirtyJSON){
+        let initialData = JSON.parse(JSON.stringify(dirtyJSON));
+        let finalJSON = {
+            "title": initialData.Title,
+            "plot": initialData.PLot
+        }
+
     }
 
 }

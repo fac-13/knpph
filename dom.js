@@ -14,6 +14,7 @@ function fetchOneMovieData(id){
     let url = "https://www.omdbapi.com/?i=" + id + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
         console.log(response);
+        displayDetailedResults(response);
     });
 }
 
@@ -49,8 +50,24 @@ function displayResults(moviesArray) {
     });
 }
 
-function displayDetailedResults(){
-
+function displayDetailedResults(response){
+    while (mainHolder.firstChild) {
+        mainHolder.removeChild(mainHolder.firstChild);
+    }
+    console.log(logicFunctions.cleanJSON(response));
+    let contentHolder = document.createElement('div');
+    contentHolder.setAttribute("class", "content-holder");
+    
+    let imageHolder = document.createElement('div');
+    let imageContent = document.createElement('img');
+    let titleHolder = document.createElement('h2');
+    titleHolder.textContent = response.Title;
+    let posterURL = response.Poster;
+    imageContent.src = posterURL;
+    contentHolder.appendChild(titleHolder);
+    contentHolder.appendChild(imageContent);
+    
+    mainHolder.appendChild(contentHolder);
 }
 
 })(document);
