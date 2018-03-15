@@ -48,16 +48,12 @@ addListener('submit-button', 'click', function(event){
 
  function fetchFunFact(url){
 
-    //   http://www.omdbapi.com/?i=tt3896198&apikey=92ebbf53
-   
        logicFunctions.makeCall(url, function(response){
            let eventText = document.getElementById("event-text");
            var eventArr = response.data.Events;
 
 
           eventText.textContent = eventArr[0].year +" : " + eventArr[0].text;
-        //    displayDetailedResults(response);
-        //    getReleaseDate(response.Released);
        });
    }
 
