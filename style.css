@@ -1,29 +1,107 @@
 html {
- margin:0;
- background: hsl(0, 0%, 30%);
+    margin: 0;
+    background: hsl(0, 0%, 30%);
 }
 
 body {
-    margin:0 auto;
-    font-family:-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.main-holder-class{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-        margin: 1rem;
+body h1 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(50%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translateX(-50%) translateY(50%);
+    /* IE 9 */
+    transform: translateX(-50%) translateY(50%);
+    /* IE 10, Fx 16+, Op 12.1+ */
 }
 
-.main-holder-class > div {
-        display: block;
-        padding: 1rem;
+.main-holder-class {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin: 1rem;
 }
 
-.main-holder-class > div > img {
-  height: 25rem;
-  width: 100%;
-  object-fit: cover;
+.main-holder-class>div {
+    display: block;
+    padding: 1rem;
 }
+
+.main-holder-class>div>img {
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ******************Test***************** */
+
+.main-holder-class2 {
+    display: block;
+    margin: 1rem auto;
+    background-color: beige;
+    width: 90%;
+    height: 90vh;
+}
+
+.content-holder {
+    margin: 0;
+    padding: 1%;
+    background-color: grey;
+    height: 98%;
+    width: 98%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.poster-holder {
+    background-color: firebrick;
+    height: 90%;
+    width: 30%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poster-img {
+    max-height: 90%;
+    max-width: 90%;
+}
+
+.summary-holder {
+    background-color: deepskyblue;
+    height: 90%;
+    width: 65%;
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.actor-list {
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.actor-list li {
+    margin-right: 1%;
+    width: 24%;
+}
+
+span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* ************End ***************/
 
 form {
     margin: 0.2rem;
@@ -72,14 +150,10 @@ input[type=submit]:active {
 }
 
 footer {
-        position: fixed;
-        bottom: 0%;
-        width: 100%;
-        text-align: center;
-        height: 3rem;
-        background: hsl(0, 0%, 25%);
-}
-
-.content-holder{
-    margin: 1rem 2rem;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    text-align: center;
+    height: 3rem;
+    background: hsl(0, 0%, 25%);
 }

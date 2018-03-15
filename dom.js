@@ -2,6 +2,7 @@
     let mykey = config.KEY_OMDB;
     let mainHolder = document.getElementById('main-holder');
     let searchBoxHolder = document.getElementById('search-box');
+    const header = document.getElementById('header');
 
  function addListener(selector, eventName, callback) {
      document.getElementById(selector).addEventListener(eventName, callback);
@@ -21,7 +22,12 @@ function fetchOneMovieData(id){
 function fetchAllMoviesData(keyword, page){
     let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
-        displayResults(response.Search);
+        if(!response.Search){
+            header.innerText = 'No result for your search';
+        } else {
+            header.style.display = "none";
+            displayResults(response.Search);
+        }
     });
 }
 addListener('submit-button', 'click', function(event){
@@ -63,6 +69,7 @@ function displayResults(moviesArray) {
 }
 
 function displayDetailedResults(response){
+    mainHolder.classList.remove("main-holder-class");
     while (mainHolder.firstChild) {
         mainHolder.removeChild(mainHolder.firstChild);
     }
@@ -70,7 +77,8 @@ function displayDetailedResults(response){
     console.log(logicFunctions.cleanJSON(response));
     let contentHolder = document.createElement('div');
     contentHolder.innerHTML = designFunctions.pageCreator(cleanJSON);
-    // contentHolder.setAttribute("class", "content-holder");
+    contentHolder.setAttribute("class", "content-holder");
+    mainHolder.classList.add("main-holder-class2");
     
     // let imageHolder = document.createElement('div');
     // let imageContent = document.createElement('img');
