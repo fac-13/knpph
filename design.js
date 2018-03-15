@@ -6,7 +6,7 @@ var designFunctions = {
                 <img src="${jsonIN.poster}" alt="${jsonIN.title} Poster" class="poster-img">
             </div>
             <div class="summary-holder">
-                <h1>${jsonIN.title}</h1>
+                <h2>${jsonIN.title}</h2>
                 <h2>Overview</h2>
                 <p>${jsonIN.plot}</p>
                 <h3>Release Date:<span> ${jsonIN.date}</span></h3>
@@ -19,7 +19,7 @@ var designFunctions = {
                 </ul>
                 </div>
                 <h3>On release day in history:</h3>
-                <p>*Something happened*</p>
+                <p id="event-text"> </p>
             </div>
             `;
     return markup;
