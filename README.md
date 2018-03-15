@@ -12,9 +12,9 @@ a) Open Movie DB API and Today in History API
 
 ## File Structure
 
-Index file - contains main app skeleton
-Logic file - contains functions that relate to the app functionality
-DOM file - contains functions that send, receive and manipulate data from our API calls
-Design file - contains function that display indiviudal movie details to the main viewpoint
-Test file - contains data for testing the app functions and functionalities
-Style CSS - contains all design classes of the app
+- Index file - contains main app skeleton
+- Logic file - contains functions that relate to the app functionality
+- DOM file - contains functions that send, receive and manipulate data from our API calls
+- Design file - contains function that display indiviudal movie details to the main viewpoint
+- Test file - contains data for testing the app functions and functionalities
+- Style CSS - contains all design classes of the app
