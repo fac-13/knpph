@@ -25,8 +25,17 @@ var logicFunctions = {
             "poster": initialData.Poster
         }
         return finalJSON;
-    }
+    },
 
+    pageNumerator: function(pages){
+        let numberOfPages = 0;
+        if(pages<=10 && pages>1){
+            numberOfPages = 1;
+        }else{
+            numberOfPages = Math.ceil(pages);
+        }
+        return numberOfPages<100 ? numberOfPages : 100;
+    }
 }
 
 if (typeof module !== 'undefined') {
