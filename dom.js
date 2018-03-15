@@ -1,19 +1,15 @@
-
-(function(document){
-    let mykey = config.KEY_OMDB;
-    let mainHolder = document.getElementById('main-holder');
-    let searchBoxHolder = document.getElementById('search-box');
-    let buttonsHolder = document.getElementById("buttons-holder");
-    const header = document.getElementById("header");
-
+(function(document) {
+  let mykey = config.KEY_OMDB;
+  let mainHolder = document.getElementById("main-holder");
+  let searchBoxHolder = document.getElementById("search-box");
+  let buttonsHolder = document.getElementById("buttons-holder");
+  const header = document.getElementById("header");
 
   function addListener(selector, eventName, callback) {
     document.getElementById(selector).addEventListener(eventName, callback);
   }
 
   function fetchOneMovieData(id) {
-    //   http://www.omdbapi.com/?i=tt3896198&apikey=92ebbf53
-
     let url = "https://www.omdbapi.com/?i=" + id + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response) {
       console.log(response);
@@ -37,9 +33,9 @@
         header.style.display = "none";
         displayResults(response.Search);
         getPages(response.totalResults, keyword);
-    }
-  });
-}
+      }
+    });
+  }
 
   addListener("submit-button", "click", function(event) {
     if (mainHolder.classList.contains("main-holder-class2")) {
@@ -73,25 +69,26 @@
     fetchFunFact(dateUrl);
   }
 
- function getPages(results, keyword){
+  function getPages(results, keyword) {
     let numberOfPages = logicFunctions.pageNumerator(results);
     while (buttonsHolder.firstChild) {
-        buttonsHolder.removeChild(buttonsHolder.firstChild);
+      buttonsHolder.removeChild(buttonsHolder.firstChild);
     }
-    if(numberOfPages>1){}
-        for (let i=1; i<=numberOfPages; i++){
-            let buttonHolder = document.createElement("button");
-            buttonHolder.setAttribute("class", "page-link");
-            buttonHolder.innerHTML=i;
-            buttonHolder.addEventListener("click", function(e){
-                e.preventDefault();
-                let pageNum = e.target.innerHTML;
-                fetchAllMoviesData(keyword, numberOfPages);
-        });
-            // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
-            buttonsHolder.appendChild(buttonHolder);
+    if (numberOfPages > 1) {
     }
-}
+    for (let i = 1; i <= numberOfPages; i++) {
+      let buttonHolder = document.createElement("button");
+      buttonHolder.setAttribute("class", "page-link");
+      buttonHolder.innerHTML = i;
+      buttonHolder.addEventListener("click", function(e) {
+        e.preventDefault();
+        let pageNum = e.target.innerHTML;
+        fetchAllMoviesData(keyword, numberOfPages);
+      });
+      // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
+      buttonsHolder.appendChild(buttonHolder);
+    }
+  }
 
   function fetchFunFact(url) {
     logicFunctions.makeCall(url, function(response) {
