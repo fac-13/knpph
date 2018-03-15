@@ -38,24 +38,28 @@ addListener('submit-button', 'click', function(event){
 // });
 
 function displayResults(moviesArray) {
-    console.log(moviesArray);
-    while (mainHolder.firstChild) {
-        mainHolder.removeChild(mainHolder.firstChild);
+  console.log(moviesArray);
+  while (mainHolder.firstChild) {
+    mainHolder.removeChild(mainHolder.firstChild);
+  }
+  moviesArray.forEach(function(movie) {
+    let movieHolder = document.createElement("div");
+    let posterHolder = document.createElement("img");
+    let titleHolder = document.createElement("p");
+    if (movie.Poster !== "N/A") {
+      let posterURL = movie.Poster;
+      posterHolder.src = posterURL;
+      posterHolder.addEventListener("click", function(e) {
+        fetchOneMovieData(movie.imdbID);
+      });
+      movieHolder.appendChild(posterHolder);
+      posterHolder.onerror = function() {
+        movieHolder.removeChild(posterHolder);
+      };
+      movieHolder.appendChild(titleHolder);
+      mainHolder.appendChild(movieHolder);
     }
-    moviesArray.forEach(function(movie) {
-        let movieHolder = document.createElement('div');
-        let posterHolder = document.createElement('img');
-        let titleHolder = document.createElement('p');
-        if (movie.Poster !== "N/A"){
-            let posterURL = movie.Poster;
-            posterHolder.src = posterURL;
-            posterHolder.addEventListener("click", function(e){
-                fetchOneMovieData(movie.imdbID);
-        })
-        movieHolder.appendChild(posterHolder);
-        movieHolder.appendChild(titleHolder);
-        mainHolder.appendChild(movieHolder);}
-    });
+  });
 }
 
 function displayDetailedResults(response){
