@@ -30,52 +30,12 @@ addListener('submit-button', 'click', function(event){
     fetchAllMoviesData(keyword, 1);
 });
 
-function fetchReleaseDate(id, cb){    
-    setTimeout(function(){
-        let url = "http://www.omdbapi.com/?i="+id+"&apikey=" + mykey;
-        return cb(null, logicFunctions.makeCall(url, function(response){
-            response.Released;
-        }))
-    },100);     
-};
-
-function formatDate(oldDate, cb){
-    setTimeout(() => {
-       var movieArr = oldDate.toString().split(' ');
-        var monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        var monthNum = monthList.indexOf(movieArr[1]) + 1;
-        cb(null, "https://history.muffinlabs.com/date/" + movieArr[0] + "/" + monthNum) 
-    }, 200);    
-}
-
-function sample(url, cb){ 
-    setTimeout(() => {
-        return cb(null , logicFunctions.makeCall(url, function(response){
-    return response.data.Events[0];
-    }))
-        
-    }, 300);    
-}
-    
-function waterfall(args, tasks, cb) {
-    if(tasks.length === 0){
-      return cb(null, args)
-    }
-    tasks[0](args, function(err, arg){
-        if (err){
-          return cb(err)
-        }
-        return waterfall(arg, tasks.slice(1), cb) 
-    });
-}
 addListener('historyButton', 'click', function(){
-    var imdbID = historyButton.value;
-
-    waterfall(imdbID, [fetchReleaseDate, formatDate, sample], function(error, result){
-        console.log(result);
-    });    
+    var url = "https://history.muffinlabs.com/date"
+    logicFunctions.makeCall(url, function(response){
+        console.log(response.data.Events[0].text);
+    });
 });
-
 
 function displayResults(moviesArray) {
     console.log(moviesArray);
