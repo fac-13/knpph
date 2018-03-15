@@ -25,6 +25,10 @@ function fetchAllMoviesData(keyword, page){
     });
 }
 addListener('submit-button', 'click', function(event){
+    if (mainHolder.classList.contains("main-holder-class2")) {
+        mainHolder.classList.remove("main-holder-class2");
+        mainHolder.classList.add("main-holder-class");
+    }
     event.preventDefault();
     let keyword = searchBoxHolder.value;
     fetchAllMoviesData(keyword, 1);
