@@ -58,7 +58,7 @@ function displayDetailedResults(response){
     console.log(logicFunctions.cleanJSON(response));
     let contentHolder = document.createElement('div');
     contentHolder.innerHTML = designFunctions.pageCreator(cleanJSON);
-    // contentHolder.setAttribute("class", "content-holder");
+    contentHolder.setAttribute("class", "content-holder");
     
     // let imageHolder = document.createElement('div');
     // let imageContent = document.createElement('img');

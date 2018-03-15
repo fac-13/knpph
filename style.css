@@ -25,6 +25,65 @@ body {
   object-fit: cover;
 }
 
+/* ******************Test***************** */
+.main-holder-class2 {
+    margin: 1rem auto;
+    background-color: beige;
+    width: 90%;
+    height: 90vh;
+}
+
+.content-holder {
+    margin: 0;
+    padding: 1%;
+    background-color: grey;
+    height: 98%;
+    width: 98%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.poster-holder {
+    background-color: firebrick;
+    height: 90%;
+    width: 30%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.poster-img {
+    max-height: 90%;
+    max-width: 90%;
+}
+
+.summary-holder {
+    background-color: deepskyblue;
+    height: 90%;
+    width: 65%;
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.actor-list {
+     padding: 0;
+     display: flex;
+     justify-content: flex-start;
+     flex-wrap: wrap;
+     list-style: none;
+}
+
+.actor-list li {
+    margin-right: 1%;
+    width: 24%;
+}
+
+/* ************End ***************/
+
 form {
     margin: 0.2rem;
     display: flex;
@@ -78,8 +137,4 @@ footer {
         text-align: center;
         height: 3rem;
         background: hsl(0, 0%, 25%);
-}
-
-.content-holder{
-    margin: 1rem 2rem;
 }
