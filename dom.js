@@ -1,5 +1,6 @@
 
 (function(document){
+    debugger;
     let mykey = config.KEY_OMDB;
     let mainHolder = document.getElementById('main-holder');
     let searchBoxHolder = document.getElementById('search-box');
@@ -36,8 +37,9 @@
       } else {
         header.style.display = "none";
         displayResults(response.Search);
-        getPages(response.totalResults, keyword);
+        console.log(response.totalResults, keyword);
     }
+    getPages(response.totalResults, keyword);
   });
 }
 
@@ -74,6 +76,7 @@
   }
 
  function getPages(results, keyword){
+     console.log("buttons where are you?");
     let numberOfPages = logicFunctions.pageNumerator(results);
     while (buttonsHolder.firstChild) {
         buttonsHolder.removeChild(buttonsHolder.firstChild);
@@ -86,7 +89,7 @@
             buttonHolder.addEventListener("click", function(e){
                 e.preventDefault();
                 let pageNum = e.target.innerHTML;
-                fetchAllMoviesData(keyword, numberOfPages);
+                fetchAllMoviesData(keyword, pageNum);
         });
             // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
             buttonsHolder.appendChild(buttonHolder);
@@ -100,10 +103,6 @@
 
       eventText.textContent = eventArr[0].year + " : " + eventArr[0].text;
     });
-  }
-
-  function getPages(results) {
-    let numberOfPages = logicFunctions.pageNumerator(results);
   }
 
   function displayResults(moviesArray) {
