@@ -54,18 +54,20 @@ function displayDetailedResults(response){
     while (mainHolder.firstChild) {
         mainHolder.removeChild(mainHolder.firstChild);
     }
+    let cleanJSON = logicFunctions.cleanJSON(response);
     console.log(logicFunctions.cleanJSON(response));
     let contentHolder = document.createElement('div');
-    contentHolder.setAttribute("class", "content-holder");
+    contentHolder.innerHTML = designFunctions.pageCreator(cleanJSON);
+    // contentHolder.setAttribute("class", "content-holder");
     
-    let imageHolder = document.createElement('div');
-    let imageContent = document.createElement('img');
-    let titleHolder = document.createElement('h2');
-    titleHolder.textContent = response.Title;
-    let posterURL = response.Poster;
-    imageContent.src = posterURL;
-    contentHolder.appendChild(titleHolder);
-    contentHolder.appendChild(imageContent);
+    // let imageHolder = document.createElement('div');
+    // let imageContent = document.createElement('img');
+    // let titleHolder = document.createElement('h2');
+    // titleHolder.textContent = response.Title;
+    // let posterURL = response.Poster;
+    // imageContent.src = posterURL;
+    // contentHolder.appendChild(titleHolder);
+    // contentHolder.appendChild(imageContent);
     
     mainHolder.appendChild(contentHolder);
 }
