@@ -14,6 +14,7 @@ var logicFunctions = {
 
     cleanJSON: function (dirtyJSON){
         let initialData = JSON.parse(JSON.stringify(dirtyJSON));
+        console.log(initialData);
         let finalJSON = {
             "title": initialData.Title,
             "plot": initialData.Plot,
@@ -26,3 +27,7 @@ var logicFunctions = {
     }
 
 }
+
+if (typeof module !== 'undefined') {
+    module.exports = logicFunctions;
+  }
