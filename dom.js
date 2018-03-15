@@ -30,6 +30,13 @@ addListener('submit-button', 'click', function(event){
     fetchAllMoviesData(keyword, 1);
 });
 
+// addListener('historyButton', 'click', function(){
+//     var url = "https://history.muffinlabs.com/date"
+//     logicFunctions.makeCall(url, function(response){
+//         console.log(response.data.Events[0].text);
+//     });
+// });
+
 function displayResults(moviesArray) {
     console.log(moviesArray);
     while (mainHolder.firstChild) {
@@ -39,14 +46,15 @@ function displayResults(moviesArray) {
         let movieHolder = document.createElement('div');
         let posterHolder = document.createElement('img');
         let titleHolder = document.createElement('p');
-        let posterURL = movie.Poster;
-        posterHolder.src = posterURL;
-        posterHolder.addEventListener("click", function(e){
-            fetchOneMovieData(movie.imdbID);
+        if (movie.Poster !== "N/A"){
+            let posterURL = movie.Poster;
+            posterHolder.src = posterURL;
+            posterHolder.addEventListener("click", function(e){
+                fetchOneMovieData(movie.imdbID);
         })
         movieHolder.appendChild(posterHolder);
         movieHolder.appendChild(titleHolder);
-        mainHolder.appendChild(movieHolder);
+        mainHolder.appendChild(movieHolder);}
     });
 }
 
