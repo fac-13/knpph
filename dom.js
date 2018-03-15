@@ -19,6 +19,7 @@ function fetchOneMovieData(id){
     });
 }
 
+
 function fetchAllMoviesData(keyword, page){
     let url = "https://www.omdbapi.com/?s=" + keyword + "&page=" + page + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response){
@@ -36,8 +37,27 @@ addListener('submit-button', 'click', function(event){
     fetchAllMoviesData(keyword, 1);
 });
  function getReleaseDate(date){
-     console.log(date);
+     var dateArr = date.split(' ');
+     var monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+     var monthNum = monthList.indexOf(dateArr[1]) + 1;
+     dateUrl = "https://history.muffinlabs.com/date/" + monthNum + "/" + dateArr[0];
+     fetchFunFact(dateUrl);
  }
+
+ function fetchFunFact(url){
+
+    //   http://www.omdbapi.com/?i=tt3896198&apikey=92ebbf53
+   
+       logicFunctions.makeCall(url, function(response){
+           let eventText = document.getElementById("event-text");
+           var eventArr = response.data.Events;
+
+           eventText.textContent = eventArr[0].text;
+        //    displayDetailedResults(response);
+        //    getReleaseDate(response.Released);
+       });
+   }
+
  function getPages(results){
      console.log(results);
  }
