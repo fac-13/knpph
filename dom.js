@@ -1,5 +1,4 @@
-
-(function(document){
+(function(document) {
     debugger;
     let mykey = config.KEY_OMDB;
     let mainHolder = document.getElementById('main-holder');
@@ -13,8 +12,6 @@
   }
 
   function fetchOneMovieData(id) {
-    //   http://www.omdbapi.com/?i=tt3896198&apikey=92ebbf53
-
     let url = "https://www.omdbapi.com/?i=" + id + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response) {
       console.log(response);
@@ -37,8 +34,6 @@
       } else {
         header.style.display = "none";
         displayResults(response.Search);
-        console.log(response.totalResults, keyword);
-    }
     getPages(response.totalResults, keyword);
   });
 }
@@ -75,13 +70,14 @@
     fetchFunFact(dateUrl);
   }
 
+
  function getPages(results, keyword){
-     console.log("buttons where are you?");
     let numberOfPages = logicFunctions.pageNumerator(results);
     while (buttonsHolder.firstChild) {
-        buttonsHolder.removeChild(buttonsHolder.firstChild);
+      buttonsHolder.removeChild(buttonsHolder.firstChild);
     }
-    if(numberOfPages>1){}
+
+    if (numberOfPages > 1) {
         for (let i=1; i<=numberOfPages; i++){
             let buttonHolder = document.createElement("button");
             buttonHolder.setAttribute("class", "page-link");
@@ -94,7 +90,20 @@
             // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
             buttonsHolder.appendChild(buttonHolder);
     }
-}
+      
+    for (let i = 1; i <= numberOfPages; i++) {
+      let buttonHolder = document.createElement("button");
+      buttonHolder.setAttribute("class", "page-link");
+      buttonHolder.innerHTML = i;
+      buttonHolder.addEventListener("click", function(e) {
+        e.preventDefault();
+        let pageNum = e.target.innerHTML;
+        fetchAllMoviesData(keyword, numberOfPages);
+      });
+      // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
+      buttonsHolder.appendChild(buttonHolder);
+    }
+  }
 
   function fetchFunFact(url) {
     logicFunctions.makeCall(url, function(response) {
