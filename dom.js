@@ -54,7 +54,8 @@ addListener('submit-button', 'click', function(event){
            let eventText = document.getElementById("event-text");
            var eventArr = response.data.Events;
 
-           eventText.textContent = eventArr[0].text;
+
+          eventText.textContent = eventArr[0].year +" : " + eventArr[0].text;
         //    displayDetailedResults(response);
         //    getReleaseDate(response.Released);
        });
