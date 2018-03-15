@@ -19,6 +19,7 @@ body {
   /* IE 9 */
   transform: translateX(-50%) translateY(50%);
   /* IE 10, Fx 16+, Op 12.1+ */
+  color: rgb(250, 250, 250);
 }
 
 body {
@@ -35,7 +36,6 @@ body {
   padding: 1rem;
 }
 
-
 .main-holder-class > div {
   display: block;
   padding: 1rem;
@@ -49,7 +49,7 @@ body {
 
 /* ******************Test***************** */
 
-h1 {
+h2 {
   margin: 0;
 }
 
@@ -99,12 +99,12 @@ h1 {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  list-style: none;
+  /* list-style: none; */
 }
 
 .actor-list li {
-  margin-right: 3%;
-  margin-bottom: 3%;
+
+  margin-right: 10%;
 }
 
 span {
@@ -167,4 +167,10 @@ footer {
   text-align: center;
   height: 3rem;
   background: hsl(0, 0%, 25%);
+}
+
+/* Media queries */
+
+@media only screen and (max-width:600px) {
+    .actor-list {flex-direction: column;}
 }
