@@ -28,8 +28,13 @@
       mykey;
     logicFunctions.makeCall(url, function(response) {
       if (!response.Search) {
+        mainHolder.style.display = "none";
+        buttonsHolder.style.display = "none";        
+        header.style.display = "block";
         header.innerText = "No result for your search";
       } else {
+        mainHolder.style.display = "block";
+        buttonsHolder.style.display = "block"; 
         header.style.display = "none";
         displayResults(response.Search);
         getPages(response.totalResults, keyword);
