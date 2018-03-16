@@ -6,6 +6,14 @@ var logicFunctions = {
             if (xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
                 return callback(response);
+            }else{
+                try {
+                    callback('Your search generated no results'); // generates an exception
+                  }
+                  catch (e) {
+                    // statements to handle any exceptions
+                    console.log(e); // pass exception object to error handler
+                  }
             }
         });
     xhr.open("GET", url);
