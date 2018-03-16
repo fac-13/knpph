@@ -12,7 +12,6 @@
   function fetchOneMovieData(id) {
     let url = "https://www.omdbapi.com/?i=" + id + "&apikey=" + mykey;
     logicFunctions.makeCall(url, function(response) {
-      console.log(response);
       displayDetailedResults(response);
       getReleaseDate(response.Released);
     });
@@ -26,6 +25,8 @@
       mykey;
     logicFunctions.makeCall(url, function(response) {
       if (!response.Search) {
+        clearScreen();
+        header.style.display = "block";
         header.innerText = "No result for your search";
       } else {
         header.style.display = "none";
