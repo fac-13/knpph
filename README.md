@@ -31,8 +31,9 @@ Clone the repo in your local directory and run tape to perform the tests.
 
 The Open Movie Database (OMDB) key is free to obtain and has no 'billable' setting. Despite the fact that the key is relatively safe in terms of being shared, it is only stated in our config.js file which is included in .gitignore and thus is not uploaded on the remote.
 
+[link to today in OMDB API](http://www.omdbapi.com/)
 
-Today in History API is also free to use:
+Today in History API is also free to use. It does not require an API key. However, in order to be able to see the API calls to this provider, you would **need to install Google Chrome extension: Allow-Control-Allow-Origin**
 
-[a link](http://history.muffinlabs.com/#api)
+[link to today in history API](http://history.muffinlabs.com/#api)
 
