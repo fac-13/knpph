@@ -45,8 +45,7 @@
       mykey;
     logicFunctions.makeCall(url, function(response) {
       if (!response.Search) {
-        mainHolder.style.display = "none";
-        buttonsHolder.style.display = "none";        
+        clearScreen();       
         header.style.display = "block";
         header.innerText = "No result for your search";
       } else {
