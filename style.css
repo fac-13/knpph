@@ -45,6 +45,7 @@ body {
 
 h1 {
   margin: 0;
+  color: hsl(0, 0%, 90%);
 }
 
 .main-holder-class2 {
@@ -53,7 +54,7 @@ h1 {
   width: 90%;
   height: 90vh;
   padding-top: 1rem;
-  color: white;
+  color: hsl(0, 0%, 90%);
 }
 
 .content-holder {
