@@ -185,3 +185,11 @@ footer {
     margin: 0.2rem;
     max-width: 2rem;    
 }
+
+.main-holder-class img {
+  border: solid 1px hsla(0, 0%, 90%, 0);
+}
+
+.main-holder-class img:hover {
+  border: solid 1px hsl(0, 0%, 90%);
+}
