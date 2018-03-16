@@ -18,3 +18,11 @@ a) Open Movie DB API and Today in History API
 - Design file - contains functions that display indiviudal movie details to the main viewpoint
 - Test file - contains data for testing the app functions and functionalities
 - Style CSS - contains all design classes of the app
+
+## Tests
+
+Tests are performed on the logic.js file using the npm _tape_ module. To install and run the module:
+
+npm install tape 
+
+Clone the repo in your local directory and run tape to perform the tests.
