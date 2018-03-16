@@ -26,10 +26,8 @@
     logicFunctions.makeCall(url, function(response) {
       if (!response.Search) {
         clearScreen();
-        header.style.display = "block";
         header.innerText = "No result for your search";
       } else {
-        header.style.display = "none";
         displayFirstPage(response.Search, response.totalResults, keyword);
       }
     });
@@ -49,9 +47,8 @@
         header.style.display = "block";
         header.innerText = "No result for your search";
       } else {
-        mainHolder.style.display = "block";
-        buttonsHolder.style.display = "block"; 
-        header.style.display = "none";
+        mainHolder.style.display = "grid";
+        header.innerText = "";
         displayResults(response.Search);
       }
     });
