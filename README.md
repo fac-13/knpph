@@ -29,11 +29,17 @@ Clone the repo in your local directory and run tape to perform the tests:
 
 `npm test`
 
+There should be 6 working tests, failing tests are excluded from test.js.
+
+During project work we attempted to use sinon module to produce a spy test double.
+
+
+
 ## Handling API keys
 
 The Open Movie Database (OMDB) key is free to obtain and has no 'billable' setting. Despite the fact that the key is relatively safe in terms of being shared, it is only stated in our config.js file which is included in .gitignore and thus is not uploaded on the remote.
 
-**The APP does not perform from the remote repository, it has to be cloned and run on localif you wish to see it working.**
+**The APP does not perform from the remote repository, it has to be cloned and run on local if you wish to see it working.**
 
 [link to the OMDB API](http://www.omdbapi.com/)
 
