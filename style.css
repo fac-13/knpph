@@ -20,7 +20,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: linear-gradient(#1e272e, #485460);
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100%;
 }
 
 .main-holder-class {
@@ -45,6 +46,11 @@ body {
 
 h1 {
   margin: 0;
+  color: hsl(0, 0%, 90%);
+}
+
+h2{
+  margin-top: 0;
 }
 
 .main-holder-class2 {
@@ -53,7 +59,7 @@ h1 {
   width: 90%;
   height: 90vh;
   padding-top: 1rem;
-  color: white;
+  color: hsl(0, 0%, 90%);
 }
 
 .content-holder {
@@ -178,4 +184,12 @@ footer {
     text-align: center;
     margin: 0.2rem;
     max-width: 2rem;    
+}
+
+.main-holder-class img {
+  border: solid 1px hsla(0, 0%, 90%, 0);
+}
+
+.main-holder-class img:hover {
+  border: solid 1px hsl(0, 0%, 90%);
 }
