@@ -89,19 +89,6 @@
         buttonsHolder.appendChild(buttonHolder);
       }
     }
-
-    for (let i = 1; i <= numberOfPages; i++) {
-      let buttonHolder = document.createElement("button");
-      buttonHolder.setAttribute("class", "page-link");
-      buttonHolder.innerHTML = i;
-      buttonHolder.addEventListener("click", function(e) {
-        e.preventDefault();
-        let pageNum = e.target.innerHTML;
-        fetchAllMoviesData(keyword, numberOfPages);
-      });
-      // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
-      buttonsHolder.appendChild(buttonHolder);
-    }
   }
 
   function fetchFunFact(url) {
