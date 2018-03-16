@@ -85,7 +85,7 @@
           let pageNum = e.target.innerHTML;
           fetchAllMoviesData(keyword, pageNum);
         });
-        // buttonHolder.insertRule('.page-link:hover {background-color: red;}', 0);
+        document.styleSheets[0].insertRule('.page-link:hover { background-color: grey; color: white; }', 0);
         buttonsHolder.appendChild(buttonHolder);
       }
     }
