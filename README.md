@@ -24,3 +24,5 @@ a) Open Movie DB API and Today in History API
 Tests are performed on the logic.js file using the npm _tape_ module. To install and run the module:
 
 npm install tape 
+
+Clone the repo in your local directory and run tape to perform the tests.
