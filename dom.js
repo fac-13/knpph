@@ -43,11 +43,7 @@
       mykey;
     logicFunctions.makeCall(url, function(response) {
       if (!response.Search) {
-<<<<<<< HEAD
-        clearScreen();       
-=======
         clearScreen(); 
->>>>>>> master
         header.style.display = "block";
         header.innerText = "No result for your search";
       } else {
