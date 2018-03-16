@@ -18,6 +18,22 @@
     });
   }
 
+  function fetchFirstPageMoviesData(keyword) {
+    let url =
+      "https://www.omdbapi.com/?s=" +
+      keyword +
+      "&apikey=" +
+      mykey;
+    logicFunctions.makeCall(url, function(response) {
+      if (!response.Search) {
+        header.innerText = "No result for your search";
+      } else {
+        header.style.display = "none";
+        displayFirstPage(response.Search, response.totalResults, keyword);
+      }
+    });
+  }
+
   function fetchAllMoviesData(keyword, page) {
     let url =
       "https://www.omdbapi.com/?s=" +
@@ -37,7 +53,6 @@
         buttonsHolder.style.display = "block"; 
         header.style.display = "none";
         displayResults(response.Search);
-        getPages(response.totalResults, keyword);
       }
     });
   }
@@ -49,7 +64,7 @@
     }
     event.preventDefault();
     let keyword = searchBoxHolder.value;
-    fetchAllMoviesData(keyword, 1);
+    fetchFirstPageMoviesData(keyword);
   });
 
   function getReleaseDate(date) {
@@ -76,24 +91,9 @@
 
   function getPages(results, keyword) {
     let numberOfPages = logicFunctions.pageNumerator(results);
-    while (buttonsHolder.firstChild) {
-      buttonsHolder.removeChild(buttonsHolder.firstChild);
-    }
-
-    if (numberOfPages > 1) {
       for (let i = 1; i <= numberOfPages; i++) {
-        let buttonHolder = document.createElement("button");
-        buttonHolder.setAttribute("class", "page-link");
-        buttonHolder.innerHTML = i;
-        buttonHolder.addEventListener("click", function(e) {
-          e.preventDefault();
-          let pageNum = e.target.innerHTML;
-          fetchAllMoviesData(keyword, pageNum);
-        });
-        document.styleSheets[0].insertRule('.page-link:hover { background-color: grey; color: white; }', 0);
-        buttonsHolder.appendChild(buttonHolder);
+        fetchAllMoviesData(keyword, i);
       }
-    }
   }
 
   function fetchFunFact(url) {
@@ -105,11 +105,19 @@
     });
   }
 
-  function displayResults(moviesArray) {
-    console.log(moviesArray);
+  function clearScreen(){
     while (mainHolder.firstChild) {
       mainHolder.removeChild(mainHolder.firstChild);
     }
+  }
+
+  function displayFirstPage(moviesArray, results, keyword){
+    clearScreen();
+    displayResults(moviesArray);
+    getPages(results, keyword);
+  }
+
+  function displayResults(moviesArray) {
     moviesArray.forEach(function(movie) {
       let movieHolder = document.createElement("div");
       let posterHolder = document.createElement("img");
