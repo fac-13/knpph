@@ -31,9 +31,41 @@ Clone the repo in your local directory and run tape to perform the tests:
 
 There should be 6 working tests, failing tests are excluded from test.js.
 
-During project work we attempted to use sinon module to produce a spy test double.
+During project work we attempted to use sinon module to produce a spy test double. The code below is out try but it was not a success. Let us know if you can fix our spy.
 
+```
+var test = require('tape');
+var sinon = require('sinon');
+var jsdom = require('jsdom')
+var logicFunctions = require('../logic.js');
+var xhr;
+var requests;     
 
+test('setup', function (t) {
+    // setup goes here, call t.end() when finished
+    xhr = sinon.useFakeXMLHttpRequest()
+    requests = [];
+    xhr.onCreate = function (xhr) {
+        requests.push(xhr);
+    };
+    console.log("setup");
+    t.end();
+});
+test('Testing makeCall works', function(t){
+    let expected = requests + 1;
+    logicFunctions.makeCall("www.google.com", function(a){return a});
+    let actual = requests;
+    t.equal(actual, expected, 'requests are equal');
+    t.end();
+});
+
+// your other tests go here...
+
+test('teardown', function (t) {
+    // teardown goes here, call t.end() when finished
+    xhr.restore();
+});
+```
 
 ## Handling API keys
 
